@@ -26,7 +26,7 @@ public partial class MainWindow : Window
     }
 
     private async void OnAskQuestionClick(object? sender, RoutedEventArgs e){
-       var msg = new MessageBox("Select a file?");
+       var msg = new MessageBox("Do you want to continue?");
     bool result =  await msg.ShowDialog<bool>(this);
 
     if (result)
