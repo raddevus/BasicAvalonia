@@ -15,6 +15,5 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+   <Button HorizontalAlignment="Center">Calculate</Button>
 </Window>
