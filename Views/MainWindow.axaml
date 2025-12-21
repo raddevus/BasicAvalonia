@@ -34,6 +34,6 @@
       </Grid>
        <Button Click="Button_OnClick" HorizontalAlignment="Center">Calculate</Button>
        <Button Click="OnAskQuestionClick" HorizontalAlignment="Center">MsgBox</Button>
-
+       <Button Click="OpenFileButton_Clicked" HorizontalAlignment="Center">Open File</Button>
    </StackPanel>
 </Window>

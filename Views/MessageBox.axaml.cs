@@ -5,6 +5,8 @@ namespace BasicAvalonia.Views;
 
 public partial class MessageBox : Window
 {
+   public MessageBox(): this("default message") {
+   }
     public MessageBox(string message)
     {
         InitializeComponent();
