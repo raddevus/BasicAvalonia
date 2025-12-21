@@ -22,4 +22,22 @@ public partial class MainWindow : Window
            Fahrenheit.Text = "0";
        }
     }
+
+    private async void OnAskQuestionClick(object? sender, RoutedEventArgs e){
+       var msg = new MessageBox("Select a file?");
+    bool result =  await msg.ShowDialog<bool>(this);
+
+    if (result)
+    {
+        // User clicked OK
+         System.Console.WriteLine("User selected OK");
+
+    }
+    else
+    {
+        // User clicked Cancel
+        System.Console.WriteLine("User cancelled");
+    }
+    }
+
 }

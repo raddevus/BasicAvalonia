@@ -33,5 +33,7 @@
             <TextBox Name="Fahrenheit" Grid.Row="1" Grid.Column="1" Margin="0 5" Text="0"/>
       </Grid>
        <Button Click="Button_OnClick" HorizontalAlignment="Center">Calculate</Button>
+       <Button Click="OnAskQuestionClick" HorizontalAlignment="Center">MsgBox</Button>
+
    </StackPanel>
 </Window>
