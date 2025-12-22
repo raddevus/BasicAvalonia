@@ -8,6 +8,7 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     public string Greeting { get; } = "Welcome to Avalonia!";
     private DocumentWindow singleWin;
+    private bool shouldCancel = true;
     [RelayCommand]
     private void OpenNewWindow()
     {
@@ -26,10 +27,18 @@ public partial class MainWindowViewModel : ViewModelBase
             singleWin.Closing += (s, e) =>
             {
                 ((DocumentWindow)s).Hide();
-                e.Cancel = true;
+                e.Cancel = shouldCancel;
             };
          }
          
          singleWin.Show();
+    }
+
+    public void OnWindowClosed()
+    {
+       System.Console.WriteLine("Closing...");
+       shouldCancel = false;
+       singleWin.Close();
+       singleWin = null;
     }
 }

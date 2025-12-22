@@ -2,6 +2,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
 using System.IO;
+using BasicAvalonia.ViewModels;
 
 namespace BasicAvalonia.Views;
 
@@ -10,6 +11,12 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        this.Closed += (_, _) =>
+        {
+           System.Console.WriteLine("Closing MainWindow...");
+            if (DataContext is MainWindowViewModel vm)
+                vm.OnWindowClosed();
+        };
     }
     private void Button_OnClick(object? sender, RoutedEventArgs e)
     {
