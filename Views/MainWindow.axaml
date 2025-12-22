@@ -37,5 +37,8 @@
        <Button Click="OpenFileButton_Clicked" HorizontalAlignment="Center">Open File</Button>
        <Button Content="Open Doc" HorizontalAlignment="Center"
         Command="{Binding OpenNewWindowCommand}" />
+
+       <Button Content="Open Single" HorizontalAlignment="Center"
+        Command="{Binding OpenStaticWindowCommand}" />
    </StackPanel>
 </Window>
