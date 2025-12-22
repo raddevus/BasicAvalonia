@@ -61,6 +61,7 @@ public partial class MainWindow : Window
             using var streamReader = new StreamReader(stream);
             // Reads all the content of file as a text.
             var fileContent = await streamReader.ReadToEndAsync();
+	    System.Console.WriteLine($"{fileContent}");
         }
     }
 
