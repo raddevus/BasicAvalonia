@@ -37,8 +37,10 @@ public partial class MainWindowViewModel : ViewModelBase
     public void OnWindowClosed()
     {
        System.Console.WriteLine("Closing...");
-       shouldCancel = false;
-       singleWin.Close();
-       singleWin = null;
+       if (singleWin != null){
+          shouldCancel = false;
+          singleWin.Close();
+          singleWin = null;
+       }
     }
 }
