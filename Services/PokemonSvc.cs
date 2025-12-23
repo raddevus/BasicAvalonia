@@ -10,7 +10,7 @@ public interface IPokeService
     Task<PokeData?> GetDataAsync();
 }
 
-public class PokeApiSiervice : IPokeService
+public class PokeApiService : IPokeService
 {
     private readonly HttpClient _http = new();
 
@@ -19,10 +19,11 @@ public class PokeApiSiervice : IPokeService
         var url = "https://pokeapi.co/api/v2/pokemon/";
 
         var response = await _http.GetAsync(url);
+        System.Console.WriteLine($"response: {response}");
         response.EnsureSuccessStatusCode();
 
         var json = await response.Content.ReadAsStringAsync();
-
+         System.Console.WriteLine($"json: {json}");
         return JsonSerializer.Deserialize<PokeData>(json, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true

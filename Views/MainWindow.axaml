@@ -1,6 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:BasicAvalonia.ViewModels"
+        xmlns:models="using:BasicAvalonia.Models"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
@@ -40,5 +41,33 @@
 
        <Button Content="Open Single" HorizontalAlignment="Center"
         Command="{Binding OpenStaticWindowCommand}" />
+
+        <Button Content="Load Data"
+        Command="{Binding LoadDataCommand}" />
+ <Grid ShowGridLines="True" Margin="5" 
+          ColumnDefinitions="120, 100"
+          RowDefinitions="Auto, Auto">
+
+<!--
+<ItemsControl ItemsSource="{Binding Data.results}">
+    <ItemsControl.ItemTemplate>
+    <DataTemplate x:DataType="models:Pokemon">
+            <TextBlock Text="{Binding Name}" />
+        </DataTemplate>
+    </ItemsControl.ItemTemplate>
+</ItemsControl>
+-->
+<ItemsControl ItemsSource="{Binding Data.results}"> <ItemsControl.ItemTemplate>
+
+    <DataTemplate x:DataType="models:Pokemon">
+<TextBlock Grid.Row="1" Grid.Column="0" Margin="10" Text="{Binding Name}" />
+</DataTemplate> </ItemsControl.ItemTemplate> </ItemsControl>
+<!--<ItemsControl ItemsSource="{Binding Data.results}"> <ItemsControl.ItemTemplate>
+    <DataTemplate x:DataType="models:Pokemon">
+         <TextBlock Name="Url" Text="{Binding Url}" Grid.Row="1" Grid.Column="1" Margin="0 5" />
+
+</DataTemplate> </ItemsControl.ItemTemplate> </ItemsControl>-->
+         </Grid>
+
    </StackPanel>
 </Window>

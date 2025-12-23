@@ -1,14 +1,25 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Threading.Tasks;
+
 using BasicAvalonia.Views;
+using BasicAvalonia.Models;
+using BasicAvalonia.Services;
 
 namespace BasicAvalonia.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
+   private readonly IPokeService pokeService;
+   [ObservableProperty] private PokeData? data;
     public string Greeting { get; } = "Welcome to Avalonia!";
     private DocumentWindow singleWin;
     private bool shouldCancel = true;
+
+    public MainWindowViewModel(IPokeService svc){
+         pokeService = svc;
+    }
+
     [RelayCommand]
     private void OpenNewWindow()
     {
@@ -33,6 +44,13 @@ public partial class MainWindowViewModel : ViewModelBase
          
          singleWin.Show();
     }
+
+   [RelayCommand]
+   private async Task LoadDataAsync() {
+      System.Console.WriteLine("LoadDataAsync...");
+      Data = await pokeService.GetDataAsync();
+      System.Console.WriteLine($"{Data}");
+   }
 
     public void OnWindowClosed()
     {

@@ -2,13 +2,13 @@
 namespace BasicAvalonia.Models;
 
 public class PokeData{
-   int count{get;set;}
-   string next{get;set;}
-   string previous{get;set;}
-   Pokemon [] results{get;set;}
+   public int count{get;set;}
+   public string next{get;set;}
+   public string previous{get;set;}
+   public Pokemon [] results{get;set;}
 }
 
 public class Pokemon{
-   string name{get;set;}
-   string url{get;set;}
+  public string Name{get;set;}
+  public string Url{get;set;}
 }
