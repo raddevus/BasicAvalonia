@@ -44,9 +44,6 @@
 
         <Button Content="Load Data"
         Command="{Binding LoadDataCommand}" />
- <Grid ShowGridLines="True" Margin="5" 
-          ColumnDefinitions="120, 100"
-          RowDefinitions="Auto, Auto">
 
 <!--
 <ItemsControl ItemsSource="{Binding Data.results}">
@@ -57,17 +54,20 @@
     </ItemsControl.ItemTemplate>
 </ItemsControl>
 -->
-<ItemsControl ItemsSource="{Binding Data.results}"> <ItemsControl.ItemTemplate>
-
+<ItemsControl ItemsSource="{Binding Data.results}">
+    <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+            <UniformGrid Columns="1"/>
+        </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+<ItemsControl.ItemTemplate>
     <DataTemplate x:DataType="models:Pokemon">
-<TextBlock Grid.Row="1" Grid.Column="0" Margin="10" Text="{Binding Name}" />
-</DataTemplate> </ItemsControl.ItemTemplate> </ItemsControl>
-<!--<ItemsControl ItemsSource="{Binding Data.results}"> <ItemsControl.ItemTemplate>
-    <DataTemplate x:DataType="models:Pokemon">
-         <TextBlock Name="Url" Text="{Binding Url}" Grid.Row="1" Grid.Column="1" Margin="0 5" />
-
-</DataTemplate> </ItemsControl.ItemTemplate> </ItemsControl>-->
-         </Grid>
-
+        <Grid ColumnDefinitions="*,*">
+            <TextBlock Text="{Binding Name}" Grid.Column="0" />
+            <TextBlock Text="{Binding Url}"  Grid.Column="1" />
+        </Grid>
+    </DataTemplate>
+</ItemsControl.ItemTemplate>
+</ItemsControl>
    </StackPanel>
 </Window>
