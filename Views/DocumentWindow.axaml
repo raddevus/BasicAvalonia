@@ -4,6 +4,8 @@
         x:Class="BasicAvalonia.Views.DocumentWindow"
         Width="400" Height="300"
         x:DataType="vm:DocumentViewModel"
+
+        Icon="/Assets/avalonia-logo.ico"
         Title="Document Window">
 
     <StackPanel Margin="10">
