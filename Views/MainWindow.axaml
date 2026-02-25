@@ -41,6 +41,9 @@
 
        <Button Content="Open Single" HorizontalAlignment="Center"
         Command="{Binding OpenStaticWindowCommand}" />
+        <Button Content="Copy Text" HorizontalAlignment="Center"
+            Click="CopyText"/>
+
 
         <Button Content="Load Data"
         Command="{Binding LoadDataCommand}" />

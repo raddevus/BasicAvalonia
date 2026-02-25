@@ -3,6 +3,7 @@ using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
 using System.IO;
 using BasicAvalonia.ViewModels;
+using AppHelpers;
 
 namespace BasicAvalonia.Views;
 
@@ -17,6 +18,13 @@ public partial class MainWindow : Window
             if (DataContext is MainWindowViewModel vm)
                 vm.OnWindowClosed();
         };
+    }
+    
+    private async void CopyText(object? sender, RoutedEventArgs e){
+       var clipboard = AppHelpers.Clipboard.Get();
+         if (clipboard != null) {
+          await clipboard.SetTextAsync("This text should now be on the clipboard");
+         }
     }
     private void Button_OnClick(object? sender, RoutedEventArgs e)
     {
